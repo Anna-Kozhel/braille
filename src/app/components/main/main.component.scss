@@ -11,19 +11,19 @@ $height: 100vh;
   width: 100%;
   height: 100%;
   background-repeat: repeat-x;
-  z-index: 3;
 }
 
 $btnWidth: 75vw;
-$btnMaxWidth: 650px;
+$btnMaxWidth: 450px;
 $btnDarkTop: 60vh;
 $btnLightTop: 68vh;
 
 .lightBtn {
   position: absolute;
-  bottom: $btnLightTop;
+  top: calc(max(18vw, 50px));
   width: $btnWidth;
   max-width: $btnMaxWidth;
+  min-width: 150px;
   left: calc(100vw / 2 - min($btnWidth, $btnMaxWidth) / 2);
 }
 
@@ -54,7 +54,7 @@ $textH:16vh;
   position: absolute;
   width: $textW;
   height: 25vh;
-  bottom: calc($btnLightTop);
+  top: calc(min(7vh,50px));
   left: calc(min(100vw - $textW, 100vw - $textW)/2 - 5vw);
   color: $darkMain;
   display: flex;
