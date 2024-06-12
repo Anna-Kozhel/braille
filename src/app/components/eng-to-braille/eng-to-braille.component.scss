@@ -1,0 +1,133 @@
+$darkMain: #4F5A5E;
+$lightMain: #F5F5F5;
+$basicMain: #B8CCCD;
+
+.background {
+  background-image: url("/assets/images/translateToBackground.svg");
+  background-size: auto 92.5%;
+  background-repeat: repeat-x;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+button {
+  background: none;
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+.translateToArrow {
+  position: absolute;
+  bottom: 1.5vh;
+  left: 1.5vh;
+  height: 7.5vh;
+  width: auto;
+}
+
+$fieldWidth: 86vw;
+$fieldHeight: 27.5vh;
+$maxWidth: 500px;
+$residualWidth: 100vw - $fieldWidth;
+$paddingBack: 5px;
+$paddingFront: 10px;
+$borderBack: 4px;
+$borderFront: 3.5px;
+
+.positioning {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: 60vh;
+  margin: 20vh 0;
+}
+
+.field {
+  position: relative;
+  width: $fieldWidth;
+  max-width: $maxWidth;
+  padding: $paddingBack;
+  height: $fieldHeight;
+  border: $borderBack solid $basicMain;
+  border-radius: 20px;
+  background-color: $darkMain;
+}
+
+$fontSize: 24px;
+$lineWidth: 2px;
+$lineColor: $basicMain;
+$backgroundColor: $darkMain;
+$xPadding: $paddingFront;
+
+textarea {
+  padding: $paddingFront;
+  font-size: $fontSize;
+  width: calc($fieldWidth - ($borderBack + $paddingBack * 2 + $borderFront + $paddingFront));
+  max-width: calc($maxWidth - ($borderBack + $paddingBack * 2 + $borderFront + $paddingFront));
+  height: calc($fieldHeight - ($borderBack + $paddingBack * 2 + $borderFront + $paddingFront));
+  border: $borderFront dashed $basicMain;
+  border-radius: 20px;
+  background-color: $darkMain;
+  color: $lightMain;
+  outline: none;
+  background-attachment: local;
+  background-image:
+    linear-gradient(to right, $backgroundColor, $backgroundColor $xPadding, transparent $xPadding),
+    linear-gradient(to left, $backgroundColor, $backgroundColor $xPadding, transparent $xPadding),
+    repeating-linear-gradient($backgroundColor, $backgroundColor $fontSize*2-$lineWidth,
+      $lineColor $fontSize*2-$lineWidth, $lineColor $fontSize*2 );
+  line-height: $fontSize*2;
+}
+
+textarea::placeholder {
+  color: $lightMain;
+  opacity: 0.6;
+}
+
+.outBraille {
+  height: calc($fieldHeight - 20px);
+  width: min($fieldWidth - 15px, $maxWidth - 15px);
+  position: absolute;
+  top: 7.5vh;
+  left: 10vw;
+  padding: 10px 15px;
+  color: $basicMain;
+  overflow-y: auto;
+  overflow-x: hidden;
+  flex-wrap: wrap;
+  display: flex;
+  flex-direction: row;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.items {
+  display: flex;
+  flex-direction: row;
+}
+
+$size: 15px;
+.normalDot {
+  width: $size;
+  height: $size;
+  margin: calc($size/2);
+  border-radius: $size;
+}
+
+.active {
+  background-color: $darkMain;
+}
+$padlo: 3px;
+.passive {
+  background-color: $darkMain;
+  opacity: 0.3;
+  margin: calc($padlo/2 + $size/2) !important;
+  width: calc($size - $padlo) !important;
+  height: calc($size - $padlo) !important;
+}

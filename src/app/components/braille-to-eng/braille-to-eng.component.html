@@ -1,0 +1,29 @@
+
+<div class="background">
+  <button [routerLink]="'/'">
+    <img src="/assets/images/backArrow.svg" alt="back" class="translateToArrow">
+  </button>
+
+  <div class="positioning">
+    <div class="field">
+      <div *ngIf="!isLoaded" class="inputBraille">
+        <img src="/assets/images/backArrow.svg" alt="download" class="download">
+        <div>
+          <p>Insert or upload</p>
+          <p>an image</p>
+        </div>
+      </div>
+      <div *ngIf="isLoaded" class="inputBraille">
+        <img src="/assets/images/uploaded.svg" alt="upload" class="upload">
+        <div>
+          <p>Image is uploaded!</p>
+        </div>
+      </div>
+      <input (change)="uploadImg($event)" accept=".jpeg, .jpg, .png" aria-hidden="true" class="hideInput" id="fileInput" type="file" tabindex="-1" multiple="">
+    </div>
+  </div>
+  <div class="positioningT">
+    <div class="outText ">{{translatedText}}</div>
+  </div>
+</div>
+

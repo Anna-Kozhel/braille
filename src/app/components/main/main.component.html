@@ -1,0 +1,65 @@
+<div *ngIf="flag" class="backgroundPhone">
+  <div id="EngBraille" [routerLink]="'/engtobraille'">
+    <img src="../assets/images/buttonEngBraille.svg" alt="button" class="lightBtn">
+    <div class="textEngBraille">
+      <p>Translate</p>
+      <p>to?</p>
+    </div>
+  </div>
+
+  <div id="BrailleEng" [routerLink]="'/brailletoeng'">
+    <img src="../assets/images/buttonBrailleEng.svg" alt="button" class="darkBtn">
+    <div class="textBrailleEng">
+      <p>Translate</p>
+      <p>from?</p>
+    </div>
+  </div>
+</div>
+
+
+<div *ngIf="!flag" class="backgroundLaptop">
+  <div class="back">
+    <div class="field Braille">
+      <div *ngIf="!isLoaded" class="inputBraille">
+        <img src="/assets/images/backArrow.svg" alt="download" class="download">
+        <div>
+          <p>Insert or upload</p>
+          <p>an image</p>
+        </div>
+      </div>
+      <div *ngIf="isLoaded" class="inputBraille">
+        <img src="/assets/images/uploaded.svg" alt="upload" class="upload">
+        <div>
+          <p>Image is uploaded!</p>
+        </div>
+      </div>
+      <input (change)="uploadImg($event)" accept=".jpeg, .jpg, .png" aria-hidden="true" class="hideInput" id="fileInput"
+             type="file" tabindex="-1" multiple="">
+    </div>
+    <div class="outText">{{translatedText}}</div>
+  </div>
+
+  <div>
+    <div class="field Eng">
+      <textarea (input)="inputText($event)" id="input" placeholder="Write your text here..."></textarea>
+    </div>
+    <div class="outBraille">
+      <div *ngFor="let symbol of brailleText" class="list">
+        <div class="items">
+          <div [ngClass]="{'active': symbol[0], 'passive': !symbol[0]}" class="normalDot" ></div>
+          <div [ngClass]="{'active': symbol[1], 'passive': !symbol[1]}" class="normalDot"></div>
+        </div>
+        <div class="items">
+          <div [ngClass]="{'active': symbol[2], 'passive': !symbol[2]}" class="normalDot"></div>
+          <div [ngClass]="{'active': symbol[3], 'passive': !symbol[3]}" class="normalDot">
+          </div>
+        </div>
+        <div class="items">
+          <div [ngClass]="{'active': symbol[4], 'passive': !symbol[4]}" class="normalDot"></div>
+          <div [ngClass]="{'active': symbol[5], 'passive': !symbol[5]}" class="normalDot"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

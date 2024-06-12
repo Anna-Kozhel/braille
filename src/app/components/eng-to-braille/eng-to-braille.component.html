@@ -1,0 +1,29 @@
+<div class="background">
+  <div class="positioning">
+    <div class="outBraille">
+      <div *ngFor="let symbol of brailleText" class="list">
+        <div class="items">
+          <div [ngClass]="{'active': symbol[0], 'passive': !symbol[0]}" class="normalDot" ></div>
+          <div [ngClass]="{'active': symbol[1], 'passive': !symbol[1]}" class="normalDot"></div>
+        </div>
+        <div class="items">
+          <div [ngClass]="{'active': symbol[2], 'passive': !symbol[2]}" class="normalDot"></div>
+          <div [ngClass]="{'active': symbol[3], 'passive': !symbol[3]}" class="normalDot">
+          </div>
+        </div>
+        <div class="items">
+          <div [ngClass]="{'active': symbol[4], 'passive': !symbol[4]}" class="normalDot"></div>
+          <div [ngClass]="{'active': symbol[5], 'passive': !symbol[5]}" class="normalDot"></div>
+        </div>
+      </div>
+    </div>
+    <div class="field">
+      <textarea (input)="inputText($event)" id="input" placeholder="Write your text here..."></textarea>
+    </div>
+  </div>
+
+
+  <button [routerLink]="'/'" >
+    <img src="/assets/images/backArrow.svg" alt="back" class="translateToArrow">
+  </button>
+</div>

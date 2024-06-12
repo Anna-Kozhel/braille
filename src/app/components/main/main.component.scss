@@ -1,0 +1,265 @@
+$darkMain: #4F5A5E;
+$lightMain: #F5F5F5;
+$basicMain: #B8CCCD;
+
+$width: 100vw;
+$height: 100vh;
+
+.backgroundPhone {
+  background-image: url("/assets/images/backgroundVerticalPhone.svg");
+  background-size: auto 60vh;
+  width: 100%;
+  height: 100%;
+  background-repeat: repeat-x;
+  z-index: 3;
+}
+
+$btnWidth: 75vw;
+$btnMaxWidth: 650px;
+$btnDarkTop: 60vh;
+$btnLightTop: 68vh;
+
+.lightBtn {
+  position: absolute;
+  bottom: $btnLightTop;
+  width: $btnWidth;
+  max-width: $btnMaxWidth;
+  left: calc(100vw / 2 - min($btnWidth, $btnMaxWidth) / 2);
+}
+
+.darkBtn {
+  position: absolute;
+  top: $btnDarkTop;
+  width: $btnWidth;
+  max-width: $btnMaxWidth;
+  left: calc(100vw / 2 - min($btnWidth, $btnMaxWidth) / 2);
+}
+
+$textW: 30vw;
+$textH:16vh;
+
+.textBrailleEng {
+  position: absolute;
+  width: $textW;
+  height: $textH;
+  top: calc($btnDarkTop);
+  left: calc((min(100vw - $textW, 100vw - $textW)/2) - 1vw);
+  color: $lightMain;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.textEngBraille {
+  position: absolute;
+  width: $textW;
+  height: 25vh;
+  bottom: calc($btnLightTop);
+  left: calc(min(100vw - $textW, 100vw - $textW)/2 - 5vw);
+  color: $darkMain;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.backgroundPhone p {
+  margin: 0;
+  font-family: 'Oleo Script Swash Caps';
+  text-align: center;
+  font-size: 5vh;
+  height: 4vh;
+}
+
+
+
+
+
+
+// Laptop
+
+.backgroundLaptop {
+  background-image: url("/assets/images/backgroundLaptop.svg");
+  background-size: auto 70vw;
+  background-repeat: repeat-y;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+}
+
+$fieldWidth: 30vw;
+$paddingBack: 5px;
+$paddingFrontSide: 15px;
+$borderBack: 4px;
+$borderFront: 3px;
+$fontSize: 20px;
+$maxWidth: 400px;
+$fieldHeight: 30vh;
+$paddingFront: 10px;
+
+$lineWidth: 2px;
+
+
+.field {
+  position: absolute;
+  width: $fieldWidth;
+  max-width: $maxWidth;
+  padding: $paddingBack;
+  height: $fieldHeight;
+  border: $borderBack solid $darkMain;
+  background-color: $lightMain;
+  border-radius: 20px;
+}
+
+.Braille {
+  bottom: 10vh;
+}
+
+.Eng {
+  left: 10vw;
+  top: 10vh;
+}
+textarea {
+  padding: $paddingFront $paddingFrontSide;
+  font-size: $fontSize;
+  width: calc(($fieldWidth) - ($borderBack * 2 + $paddingBack * 2 + $borderFront + $paddingFrontSide));
+  max-width: calc($maxWidth - ($borderBack * 2 + $paddingBack * 2 + $borderFront + $paddingFrontSide));
+  height: calc($fieldHeight - ($borderBack + $paddingBack * 2 + $borderFront + $paddingFront));
+  border: $borderFront dashed $darkMain;
+  border-radius: 20px;
+  background-color: $lightMain;
+  color: $darkMain;
+  outline: none;
+  background-attachment: local;
+  background-image: linear-gradient(to right, $lightMain, $lightMain $paddingFrontSide, transparent $paddingFrontSide),
+  linear-gradient(to left, $lightMain, $lightMain $paddingFrontSide, transparent $paddingFrontSide),
+  repeating-linear-gradient($lightMain, $lightMain $fontSize*2-$lineWidth,
+      $basicMain $fontSize*2-$lineWidth, $basicMain $fontSize*2);
+  line-height: $fontSize*2;
+}
+
+textarea::placeholder {
+  color: $darkMain;
+  opacity: 0.6;
+}
+
+
+.backgroundBraille {
+  position: absolute;
+  top: 0;
+  right: calc(25vw - 176px);
+  transform: scale(1.0222222222222222222, 1.3);
+  z-index: -1;
+}
+
+.back {
+  position: absolute;
+  right: 10vw;
+  height: 100%;
+  width: min($maxWidth, $fieldWidth);
+  background-image: url("/assets/images/translateToPistachioBackground.svg");
+  background-repeat: repeat-x;
+  background-size: auto 55vh;
+}
+
+.inputBraille {
+  padding: $paddingFront;
+  font-size: $fontSize;
+  width: calc($fieldWidth - ($borderBack + $paddingBack * 2 + $borderFront + $paddingFront));
+  max-width: calc($maxWidth - ($borderBack + $paddingBack * 2 + $borderFront + $paddingFront));
+  height: calc($fieldHeight - ($borderBack + $paddingBack * 2 + $borderFront + $paddingFront));
+  border: $borderFront dashed $darkMain;
+  border-radius: 20px;
+  background-color: $lightMain;
+  color: $darkMain;
+  outline: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.hideInput {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  width: $fieldWidth;
+  max-width: $maxWidth;
+  height: $fieldHeight;
+}
+
+.upload {
+  height: 7.5vh;
+  width: auto;
+}
+
+.download {
+  height: 7.5vh;
+  width: auto;
+  transform: rotate(180deg);
+  filter: brightness(0) saturate(100%) invert(91%) sepia(15%) saturate(199%) hue-rotate(134deg) brightness(88%) contrast(88%);
+}
+
+.inputBraille p {
+  margin: 0;
+  text-align: center;
+}
+
+
+.outBraille {
+  height: calc($fieldHeight - 20px);
+  width: min($fieldWidth - 15px, $maxWidth - 15px);
+  position: absolute;
+  bottom: 10vh;
+  left: 10vw;
+  padding: 10px 15px;
+  color: $basicMain;
+  overflow-y: auto;
+  overflow-x: hidden;
+  flex-wrap: wrap;
+  display: flex;
+  flex-direction: row;
+}
+
+.outText {
+  height: calc($fieldHeight - 20px);
+  width: min($fieldWidth - 30px, $maxWidth - 30px);
+  position: absolute;
+  top: 10vh;
+  padding: 10px 15px;
+  font-size: 24px;
+  color: $darkMain;
+  text-align: justify;
+  overflow-y: auto;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.items {
+  display: flex;
+  flex-direction: row;
+}
+
+$size: 15px;
+.normalDot {
+  width: $size;
+  height: $size;
+  margin: calc($size/2);
+  border-radius: $size;
+}
+
+.active {
+  background-color: $basicMain;
+}
+$padlo: 3px;
+.passive {
+  background-color: $lightMain;
+  opacity: 0.2;
+  margin: calc($padlo/2 + $size/2) !important;
+  width: calc($size - $padlo) !important;
+  height: calc($size - $padlo) !important;
+}
