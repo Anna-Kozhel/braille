@@ -13,6 +13,7 @@ export class AppComponent implements OnInit{
   title: string = 'client_app';
   subscription: Subscription | undefined = undefined;
   isLoadImage: boolean = false;
+  showOutlet: boolean = false;
 
   constructor(private translatorService: TranslatorService, private spinner: NgxSpinnerService) {
     this.spinner.show();
@@ -29,11 +30,10 @@ export class AppComponent implements OnInit{
       });
   }
 
-  ngOnInit() {
-    // this.spinner.show();
-    // setTimeout(() => {
-    //   this.spinner.hide();
-    // }, 2000);
+  ngOnInit(): void {
+    setTimeout(() => {
+      this.showOutlet = true;
+    }, 1000);
   }
 
   prepareRoute(outlet: RouterOutlet) {

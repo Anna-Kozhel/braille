@@ -4,7 +4,7 @@
 
 <ngx-spinner bdColor = "rgba(245, 245, 245, 1)" size = "medium" color = "#b8cccd" type = "line-scale-pulse-out-rapid" [fullScreen] = "true"><p style="color: #4F5A5E" > Loading... </p></ngx-spinner>
 
-<router-outlet #outlet="outlet"></router-outlet>
+<router-outlet #outlet="outlet" *ngIf="showOutlet"></router-outlet>
 <script>
   if (screen.orientation && screen.orientation.lock) {
     screen.orientation.lock('portrait').catch(function(error) {
